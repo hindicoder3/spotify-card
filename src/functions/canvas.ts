@@ -4,7 +4,7 @@ import fs from "fs";
 
 //From https://stackoverflow.com/questions/1255512/how-to-draw-a-rounded-rectangle-using-html-canvas
 export const roundRect = (
-    ctx: CanvasRenderingContext2D,
+    ctx: any,
     x: number,
     y: number,
     width: number,
@@ -41,7 +41,7 @@ export const roundRect = (
 };
 
 export const roundedImage = (
-    ctx: CanvasRenderingContext2D,
+    ctx: any,
     image: any,
     x: number,
     y: number,
@@ -183,7 +183,7 @@ export const isLight = (color: string) => {
 };
 
 export const fittingString = (
-    c: CanvasRenderingContext2D,
+    c: any,
     str: string,
     maxWidth: number,
     ellipsis?: string
@@ -204,7 +204,7 @@ export const fittingString = (
 };
 
 export const progressBar = (
-    ctx: CanvasRenderingContext2D,
+    ctx: any,
     x: number,
     y: number,
     width: number,
