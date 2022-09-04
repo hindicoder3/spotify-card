@@ -1,0 +1,39 @@
+{
+    "name": "spotify-card",
+    "version": "1.2.4",
+    "homepage": "https://docs.cstef.dev/docs/spotify-card/",
+    "main": "dist/index.js",
+    "license": "MIT",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "spotify",
+        "card",
+        "youtube",
+        "soundcloud",
+        "canvas",
+        "embed",
+        "now-playing",
+        "discord"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cstefFlexin/spotify-card"
+    },
+    "scripts": {
+        "test": "yarn jest index.test.ts",
+        "build": "tsc -p ."
+    },
+    "dependencies": {
+        "axios": "^0.23.0",
+        "cheerio": "^1.0.0-rc.10",
+        "colorthief": "^2.3.2",
+        "himalaya": "^1.1.0",
+        "@napi-rs/canvas": "^0.1.29"
+    },
+    "devDependencies": {
+        "@types/jest": "^27.0.2",
+        "jest": "^27.2.3",
+        "ts-jest": "^27.0.5",
+        "typescript": "^4.4.3"
+    }
+}
