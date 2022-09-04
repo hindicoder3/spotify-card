@@ -15,10 +15,6 @@
         "now-playing",
         "discord"
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/cstefFlexin/spotify-card"
-    },
     "scripts": {
         "test": "yarn jest index.test.ts",
         "build": "tsc -p ."
