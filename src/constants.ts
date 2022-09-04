@@ -1,4 +1,4 @@
-import { Platform } from "./types";
+import { Element, Platform } from "./types";
 import { GenerateOptions } from "./types/index";
 
 export const REGEXPS: { [platform in Exclude<Platform, "custom">]: RegExp } = {

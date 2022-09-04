@@ -1,4 +1,4 @@
-import { createCanvas, loadImage, GlobalFonts } from "@napi-rs/canvas";
+import { Canvas, loadImage, FontLibrary } from "skia-canvas";
 import {
     roundRect,
     roundedImage,
@@ -21,13 +21,14 @@ import Colorthief from "colorthief";
 import { Element } from "./types/index";
 
 loadFonts([{ path: "Noto_Sans_KR", name: "NS" }]);
+
 /**
  * Generates a spotify card
  */
 export const generate = async (options: GenerateOptions) => {
     options = mergeOptions(options);
-    if (options.font) GlobalFonts.registerFromPath(options.font.path, options.font.name);
-    const canvas = createCanvas(options.width, options.height);
+    if (options.font) FontLibrary.use(options.font.name, [options.font.path]);
+    const canvas = new Canvas(options.width, options.height);
     const ctx = canvas.getContext("2d");
 
     let song_data: GenericSong;
@@ -246,7 +247,7 @@ export const generate = async (options: GenerateOptions) => {
     }
 
     //Skia property directly returning the png Buffer
-    return canvas.toBuffer("image/png")
+    return canvas.png;
 };
 
 export { GenerateOptions, Platform, GenericSong, Element, CustomSongData };

@@ -1,10 +1,10 @@
-import { GlobalFonts } from "@napi-rs/canvas";
+import { FontLibrary } from "skia-canvas";
 import path from "path";
 import fs from "fs";
 
 //From https://stackoverflow.com/questions/1255512/how-to-draw-a-rounded-rectangle-using-html-canvas
 export const roundRect = (
-    ctx: any,
+    ctx: CanvasRenderingContext2D,
     x: number,
     y: number,
     width: number,
@@ -41,7 +41,7 @@ export const roundRect = (
 };
 
 export const roundedImage = (
-    ctx: any,
+    ctx: CanvasRenderingContext2D,
     image: any,
     x: number,
     y: number,
@@ -183,7 +183,7 @@ export const isLight = (color: string) => {
 };
 
 export const fittingString = (
-    c: any,
+    c: CanvasRenderingContext2D,
     str: string,
     maxWidth: number,
     ellipsis?: string
@@ -204,7 +204,7 @@ export const fittingString = (
 };
 
 export const progressBar = (
-    ctx: any,
+    ctx: CanvasRenderingContext2D,
     x: number,
     y: number,
     width: number,
@@ -224,8 +224,12 @@ export const progressBar = (
 };
 
 export const loadFonts = (FONTS: { path: string; name: string }[]) => {
-    FONTS.forEach((f) => fs
-        .readdirSync(path.join(__dirname, "..", "..", "fonts", f.path))
-        .map((e) => GlobalFonts.registerFromPath(`fonts/${f}/${e}`, f.name))
+    FONTS.forEach((f) =>
+        FontLibrary.use(
+            f.name,
+            fs
+                .readdirSync(path.join(__dirname, "..", "..", "fonts", f.path))
+                .map((e) => `fonts/${f}/${e}`)
+        )
     );
 };
