@@ -5,16 +5,6 @@
     "main": "dist/index.js",
     "license": "MIT",
     "types": "dist/index.d.ts",
-    "keywords": [
-        "spotify",
-        "card",
-        "youtube",
-        "soundcloud",
-        "canvas",
-        "embed",
-        "now-playing",
-        "discord"
-    ],
     "scripts": {
         "test": "yarn jest index.test.ts",
         "build": "tsc -p ."
@@ -22,7 +12,7 @@
     "dependencies": {
         "axios": "^0.23.0",
         "cheerio": "^1.0.0-rc.10",
-        "colorthief": "^2.3.2",
+        "colorthief": "npm:@pioug/colorthief@2.3.2",
         "himalaya": "^1.1.0",
         "@napi-rs/canvas": "^0.1.29"
     },
